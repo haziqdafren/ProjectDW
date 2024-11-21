@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corn vs Wheat Production</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,800" rel="stylesheet" />
+    <style>
+        body {
+
+            margin: 20px;
+        }
+        .dropdown-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #ffffff;
+            transition: background-color 0.3s;
+        }
+        select:hover {
+            background-color: #f0f0f0;
+        }
+        figure {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dropdown-container">
+    <label for="year-selector" style="font-size: 18px; margin-right: 10px;">Select Year:</label>
+    <select id="year-selector" onchange="updateChart(this.value)">
+        <option value="2023">2023</option>
+        <option value="2022">2022</option>
+        <option value="2021">2021</option>
+        <option value="2020">2020</option>
+        <option value="2019">2019</option>
+    </select>
+</div>
+
+<figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">
+        A basic column chart comparing estimated corn and wheat production
+        in some countries.
+    </p>
+</figure>
+
+<script>
+    // Sample data for different years
+    const dataByYear = {
+    2023: {
+        corn: [387749, 280000, 129000, 64300, 54000, 34300, 280000, 129000, 64300, 54000],
+        wheat: [45321, 140000, 10000, 140500, 19500, 113500, 280000, 129000, 64300, 54000]
+    },
+    2022: {
+        corn: [400000, 290000, 130000, 60000, 50000, 35000, 280000, 129000, 64300, 54000],
+        wheat: [46000, 150000, 12000, 130000, 20000, 110000, 280000, 129000, 64300, 54000]
+    },
+    2021: {
+        corn: [380000, 270000, 120000, 65000, 52000, 34000, 280000, 129000, 64300, 54000],
+        wheat: [44000, 130000, 9000, 135000, 19000, 115000, 280000, 129000, 64300, 54000]
+    },
+    2020: {
+        corn: [370000, 260000, 110000, 62000, 51000, 33000, 280000, 129000, 64300, 54000],
+        wheat: [43000, 120000, 8000, 140000, 18000, 112000, 280000, 129000, 64300, 54000]
+    },
+    2019: {
+        corn: [360000, 250000, 100000, 61000, 50000, 32000, 280000, 129000, 64300, 54000],
+        wheat: [42000, 110000, 7000, 145000, 17000, 110000, 280000, 129000, 64300, 54000]
+    }
+};
+
+
+    // Initial chart creation
+    let chart = Highcharts.chart('container', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Corn vs Wheat Estimated Production for 2023',
+            align: 'left'
+        },
+        xAxis: {
+            categories: ['USA', 'China', 'Brazil', 'EU', 'Argentina', 'India','Indonesia','United States', 'Canada','France'],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            max : 200,
+            tickInterval: 50,
+            title: {
+                text: '1000 metric tons (MT)'
+            }
+        },
+        tooltip: {
+            valueSuffix: ' (1000 MT)'
+        },
+        series: [{
+            name: 'Corn',
+            data: dataByYear[2023].corn
+        }, {
+            name: 'Wheat',
+            data: dataByYear[2023].wheat
+        }]
+    });
+
+    // Function to update the chart based on selected year
+    function updateChart(year) {
+        // Update the data for both corn and wheat series
+        chart.series[0].setData(dataByYear[year].corn);
+        chart.series[1].setData(dataByYear[year].wheat);
+
+        // Update the chart title to reflect the selected year
+        chart.setTitle({ text: `Corn vs Wheat Estimated Production for ${year}` });
+    }
+</script>
+
+</body>
+</html>
