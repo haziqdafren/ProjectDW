@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,800" rel="stylesheet" />
     <style>
         body {
-
             margin: 20px;
         }
         .dropdown-container {
@@ -32,6 +31,11 @@
         }
         figure {
             margin: 0;
+        }
+        #totals {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -56,74 +60,84 @@
     </p>
 </figure>
 
+<div id="totals">
+    <!-- Display totals here -->
+</div>
+
 <script>
-    // Sample data for different years
-    const dataByYear = {
-    2023: {
-        corn: [387749, 280000, 129000, 64300, 54000, 34300, 280000, 129000, 64300, 54000],
-        wheat: [45321, 140000, 10000, 140500, 19500, 113500, 280000, 129000, 64300, 54000]
-    },
-    2022: {
-        corn: [400000, 290000, 130000, 60000, 50000, 35000, 280000, 129000, 64300, 54000],
-        wheat: [46000, 150000, 12000, 130000, 20000, 110000, 280000, 129000, 64300, 54000]
-    },
-    2021: {
-        corn: [380000, 270000, 120000, 65000, 52000, 34000, 280000, 129000, 64300, 54000],
-        wheat: [44000, 130000, 9000, 135000, 19000, 115000, 280000, 129000, 64300, 54000]
+// Sample data for different years
+const dataByYear = {
+    2019: {
+        emas: [387749, 280000, 129000, 64300, 54000, 34300, 280000, 129000, 64300, 54000],
+        perak: [45321, 140000, 10000, 140500, 19500, 113500, 280000, 129000, 64300, 54000],
+        perungggu: [45321, 140000, 10000, 140500, 19500, 113500, 280000, 129000, 64300, 54000]
     },
     2020: {
-        corn: [370000, 260000, 110000, 62000, 51000, 33000, 280000, 129000, 64300, 54000],
-        wheat: [43000, 120000, 8000, 140000, 18000, 112000, 280000, 129000, 64300, 54000]
+        emas: [387749, 280000, 129000, 64300, 54000, 34300, 280000, 129000, 64300, 54000],
+        perak: [45321, 140000, 10000, 140500, 19500, 113500, 280000, 129000, 64300, 54000],
+        perungggu: [45321, 140000, 10000, 140500, 19500, 113500, 280000, 129000, 64300, 54000]
     },
-    2019: {
-        corn: [360000, 250000, 100000, 61000, 50000, 32000, 280000, 129000, 64300, 54000],
-        wheat: [42000, 110000, 7000, 145000, 17000, 110000, 280000, 129000, 64300, 54000]
-    }
+    // Add data for other years...
 };
 
-
-    // Initial chart creation
-    let chart = Highcharts.chart('container', {
-        chart: {
-            type: 'column'
-        },
+// Initial chart creation
+let chart = Highcharts.chart('container', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Corn vs Wheat Estimated Production for 2023',
+        align: 'left'
+    },
+    xAxis: {
+        categories: ['USA', 'China', 'Brazil', 'EU', 'Argentina', 'India','Indonesia','United States', 'Canada','France'],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        max: 500000,  // Adjust according to your data range
+        tickInterval: 50000,  // Adjust to match your needs
         title: {
-            text: 'Corn vs Wheat Estimated Production for 2023',
-            align: 'left'
-        },
-        xAxis: {
-            categories: ['USA', 'China', 'Brazil', 'EU', 'Argentina', 'India','Indonesia','United States', 'Canada','France'],
-            crosshair: true
-        },
-        yAxis: {
-            min: 0,
-            max : 200,
-            tickInterval: 50,
-            title: {
-                text: '1000 metric tons (MT)'
-            }
-        },
-        tooltip: {
-            valueSuffix: ' (1000 MT)'
-        },
-        series: [{
-            name: 'Corn',
-            data: dataByYear[2023].corn
-        }, {
-            name: 'Wheat',
-            data: dataByYear[2023].wheat
-        }]
-    });
+            text: '1000 metric tons (MT)'
+        }
+    },
+    tooltip: {
+        valueSuffix: ' (1000 MT)'
+    },
+    series: [{
+        name: 'Emas',
+        data: dataByYear[2019].emas
+    }, {
+        name: 'Perak',
+        data: dataByYear[2019].perak
+    },{
+        name: 'Perunggu',
+        data: dataByYear[2019].perungggu
+    }]
+});
 
-    // Function to update the chart based on selected year
-    function updateChart(year) {
-        // Update the data for both corn and wheat series
-        chart.series[0].setData(dataByYear[year].corn);
-        chart.series[1].setData(dataByYear[year].wheat);
+// Function to update the chart based on selected year and display totals
+function updateChart(year) {
+    // Update the data for both corn and wheat series
+    chart.series[0].setData(dataByYear[year].emas);
+    chart.series[1].setData(dataByYear[year].perak);
+    chart.series[2].setData(dataByYear[year].perungggu);
 
-        // Update the chart title to reflect the selected year
-        chart.setTitle({ text: `Corn vs Wheat Estimated Production for ${year}` });
-    }
+    // Update the chart title to reflect the selected year
+    chart.setTitle({ text: `Corn vs Wheat Estimated Production for ${year}` });
+
+    // Calculate the totals for each category
+    const totalEmas = dataByYear[year].emas.reduce((a, b) => a + b, 0);
+    const totalPerak = dataByYear[year].perak.reduce((a, b) => a + b, 0);
+    const totalPerunggu = dataByYear[year].perungggu.reduce((a, b) => a + b, 0);
+
+    // Display the totals on the page
+    document.getElementById('totals').innerHTML = `
+        <p>Total Emas: ${totalEmas} 1000 MT</p>
+        <p>Total Perak: ${totalPerak} 1000 MT</p>
+        <p>Total Perunggu: ${totalPerunggu} 1000 MT</p>
+    `;
+}
 </script>
 
 </body>
