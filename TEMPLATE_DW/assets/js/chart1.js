@@ -3,32 +3,32 @@ const dataByYear1 = {
     2009: {
         categories: ['DKI Jakarta', 'Riau', 'Sumatera Utara', 'Jawa Barat', 'Jawa Tengah', 'Jawa Timur', 'Bali', 'Kalimantan', 'Aceh', 'Papua'],
         emas: [34, 14, 18, 18, 12, 4, 4, 8, 6, 2],
-        perak: [34, 44, 30, 26, 22, 14, 6, 4, 10, 6],
-        perungggu: [42, 40, 38, 32, 32, 14, 14, 10, 4, 14]
+        // perak: [34, 44, 30, 26, 22, 14, 6, 4, 10, 6],
+        // perungggu: [42, 40, 38, 32, 32, 14, 14, 10, 4, 14]
     },
     2010: {
         categories: ['DKI', 'Riau', 'Sumatera Utara', 'Jawa Barat', 'Jawa Tengah', 'Jawa Timur', 'Bali', 'Kalimantan', 'Aceh', 'Papua'],
         emas: [30, 20, 25, 15, 10, 5, 3, 2, 1, 0],
-        perak: [30, 20, 25, 15, 10, 5, 3, 2, 1, 0],
-        perungggu: [30, 20, 25, 15, 10, 5, 3, 2, 1, 0]
+        // perak: [30, 20, 25, 15, 10, 5, 3, 2, 1, 0],
+        // perungggu: [30, 20, 25, 15, 10, 5, 3, 2, 1, 0]
     },
     2011: {
         categories: ['DKI Jakarta', 'Riau', 'Sumatera Utara', 'Jawa Barat', 'Jawa Tengah', 'Jawa Timur', 'Bali', 'Kalimantan', 'Aceh', 'Papua'],
         emas: [20, 30, 15, 25, 10, 5, 3, 2, 1, 0],
-        perak: [20, 30, 15, 25, 10, 5, 3, 2, 1, 0],
-        perungggu: [20, 30, 15, 25, 10, 5, 3, 2, 1, 0]
+        // perak: [20, 30, 15, 25, 10, 5, 3, 2, 1, 0],
+        // perungggu: [20, 30, 15, 25, 10, 5, 3, 2, 1, 0]
     },
     2012: {
         categories: ['DKI Jakarta', 'Riau', 'Sumatera Utara', 'Jawa Barat', 'Jawa Tengah', 'Jawa Timur', 'Bali', 'Kalimantan', 'Aceh', 'Papua'],
         emas: [1,2,3,4,5,6,7,8,9,1],
-        perak: [1,2,3,4,5,6,7,8,9,10],
-        perungggu: [1,2,3,4,5,6,7,8,9,10]
+        // perak: [1,2,3,4,5,6,7,8,9,10],
+        // perungggu: [1,2,3,4,5,6,7,8,9,10]
     },
     2013: {
         categories: ['DKI Jakarta', 'Riau', 'Sumatera Utara', 'Jawa Barat', 'Jawa Tengah', 'Jawa Timur', 'Bali', 'Kalimantan', 'Aceh', 'Papua'],
         emas: [1,2,3,4,5,6,7,8,9,1],
-        perak: [1,2,3,4,5,6,7,8,9,10],
-        perungggu: [1,2,3,4,5,6,7,8,9,10]
+        // perak: [1,2,3,4,5,6,7,8,9,10],
+        // perungggu: [1,2,3,4,5,6,7,8,9,10]
     },
 };
 
@@ -36,35 +36,35 @@ const dataBySchoolYear1 = {
     2009: {
         categories: ['Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D', 'Sekolah E','Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D', 'Sekolah E'],
         emas: [5, 3, 4, 7, 2,5, 3, 4, 7, 2],
-        perak: [2, 2, 3, 2, 1,5, 3, 4, 7, 2],
-        perungggu: [3, 4, 4, 2, 5,5, 3, 4, 7, 2],
+        // perak: [2, 2, 3, 2, 1,5, 3, 4, 7, 2],
+        // perungggu: [3, 4, 4, 2, 5,5, 3, 4, 7, 2],
     },
     2010: {
         categories: ['Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D', 'Sekolah E','Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D', 'Sekolah E'],
         emas: [5, 3, 4, 7, 2,5, 3, 4, 7, 2],
-        perak: [2, 2, 3, 2, 1,5, 3, 4, 7, 2],
-        perungggu: [3, 4, 4, 2, 5,5, 3, 4, 7, 2],
+        // perak: [2, 2, 3, 2, 1,5, 3, 4, 7, 2],
+        // perungggu: [3, 4, 4, 2, 5,5, 3, 4, 7, 2],
     },
  
     2011: {
         categories: ['Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D', 'Sekolah E','Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D', 'Sekolah E'],
         emas: [5, 3, 4, 7, 2,5, 3, 4, 7, 2],
-        perak: [2, 2, 3, 2, 1,5, 3, 4, 7, 2],
-        perungggu: [3, 4, 4, 2, 5,5, 3, 4, 7, 2],
+        // perak: [2, 2, 3, 2, 1,5, 3, 4, 7, 2],
+        // perungggu: [3, 4, 4, 2, 5,5, 3, 4, 7, 2],
     },
  
     2012: {
         categories: ['Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D', 'Sekolah E','Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D', 'Sekolah E'],
         emas: [5, 3, 4, 7, 2,5, 3, 4, 7, 2],
-        perak: [2, 2, 3, 2, 1,5, 3, 4, 7, 2],
-        perungggu: [3, 4, 4, 2, 5,5, 3, 4, 7, 2],
+        // perak: [2, 2, 3, 2, 1,5, 3, 4, 7, 2],
+        // perungggu: [3, 4, 4, 2, 5,5, 3, 4, 7, 2],
     },
  
     2013: {
         categories: ['Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D', 'Sekolah E','Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D', 'Sekolah E'],
         emas: [5, 3, 4, 7, 2,5, 3, 4, 7, 2],
-        perak: [2, 2, 3, 2, 1,5, 3, 4, 7, 2],
-        perungggu: [3, 4, 4, 2, 5,5, 3, 4, 7, 2],
+        // perak: [2, 2, 3, 2, 1,5, 3, 4, 7, 2],
+        // perungggu: [3, 4, 4, 2, 5,5, 3, 4, 7, 2],
     },
  
 };
@@ -95,16 +95,16 @@ let chart1 = Highcharts.chart('partisipanP', {
             data: dataByYear[2009].emas,
             color: '#FFD700' // Gold color
         },
-        {
-            name: 'Perak',
-            data: dataByYear[2009].perak,
-            color: '#C0C0C0' // Silver color
-        },
-        {
-            name: 'Perunggu',
-            data: dataByYear[2009].perungggu,
-            color: '#CD7F32' // Bronze color
-        }
+        // {
+        //     name: 'Perak',
+        //     data: dataByYear[2009].perak,
+        //     color: '#C0C0C0' // Silver color
+        // },
+        // {
+        //     name: 'Perunggu',
+        //     data: dataByYear[2009].perungggu,
+        //     color: '#CD7F32' // Bronze color
+        // }
     ]
 });
 
@@ -158,15 +158,15 @@ let schoolChart1 = Highcharts.chart('partisipanS', {
             data: dataBySchoolYear1[2009].emas,
             color: '#FFD700' // Gold color
         },
-        {
-            name: 'Perak',
-            data: dataBySchoolYear1[2009].perak,
-            color: '#C0C0C0' // Silver color
-        },
-        {
-            name: 'Perunggu',
-            data: dataBySchoolYear1[2009].perungggu,
-            color: '#CD7F32' // Bronze color
-        }
+        // {
+        //     name: 'Perak',
+        //     data: dataBySchoolYear1[2009].perak,
+        //     color: '#C0C0C0' // Silver color
+        // },
+        // {
+        //     name: 'Perunggu',
+        //     data: dataBySchoolYear1[2009].perungggu,
+        //     color: '#CD7F32' // Bronze color
+        // }
     ]
 });
