@@ -5,6 +5,49 @@
     overflow: auto; /* Allow scrolling */
 }
 
+
+.card {
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+h3 {
+    color: #0047ab;
+    font-weight: bold;
+}
+
+p {
+    text-align: justify;
+    line-height: 1.6;
+    color: #4a4a4a;
+}
+
+.btn-custom {
+    background-color: #0047ab;
+    color: white;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #002c70;
+}
+
+.link-card {
+    text-decoration: none;
+    color: inherit;
+}
+
+.link-card:hover {
+    text-decoration: none;
+}
+
+
 .particles {
     position: fixed;
     width: 100%;
