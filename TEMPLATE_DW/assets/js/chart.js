@@ -80,12 +80,12 @@ let chart = Highcharts.chart('container', {
         align: 'left'
     },
     xAxis: {
-        categories: ['DKI Jakarta', 'Riau', 'Sumatera Utara', 'Jawa Barat', 'Jawa Tengah', 'Jawa Timur','Bali','Kalimantan', 'Aceh','Papua'],
+        categories: ['DKI Jakarta', 'Jawa Tengah', 'DI Yogyakarta', 'Banten', 'Jawa Barat', 'Jawa Timur', 'Sumatera Utara', 'Riau', 'Bali', 'Sumatera Barat'],
         crosshair: true
     },
     yAxis: {
         min: 0,
-        max: 10,  // Adjust according to your data range // Adjust to match your needs
+        max: 50,  // Adjust according to your data range // Adjust to match your needs
         title: {
         }
     },
@@ -169,7 +169,7 @@ let schoolChart = Highcharts.chart('school-container', {
     },
     yAxis: {
         min: 0,
-        max: 100,  // Adjust according to your data range
+        max: 50,  // Adjust according to your data range
         title: {
             text: 'Jumlah Medali'
         }
