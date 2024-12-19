@@ -76,8 +76,8 @@ let chart = Highcharts.chart('container', {
         type: 'column'
     },
     title: {
-        text: 'Jumlah Perolehan Medali Provinsi 10 Teratas pada tahun 2009',
-        align: 'left'
+        text: 'Jumlah Perolehan Medali Setiap Provinsi (Top 10) Pada Tahun 2009',
+        align: 'center'
     },
     xAxis: {
         categories: ['DKI Jakarta', 'Jawa Tengah', 'DI Yogyakarta', 'Banten', 'Jawa Barat', 'Jawa Timur', 'Sumatera Utara', 'Riau', 'Bali', 'Sumatera Barat'],
@@ -119,7 +119,7 @@ function updateChart(year) {
     chart.series[2].setData(dataByYear[year].perungggu);
 
     // Update the chart title to reflect the selected year
-    chart.setTitle({ text: `Jumlah Perolehan Medali Provinsi 10 Teratas pada tahun ${year}` });
+    chart.setTitle({ text: `Jumlah Perolehan Medali Setiap Provinsi (Top 10) Pada Tahun ${year}` });
 
     // Calculate the totals for each category
     const totalEmas = dataByYear[year].emas.reduce((a, b) => a + b, 0);
@@ -139,7 +139,7 @@ function updateChart(year) {
     schoolChart.series[0].setData(dataBySchoolYear[year].emas);
     schoolChart.series[1].setData(dataBySchoolYear[year].perak);
     schoolChart.series[2].setData(dataBySchoolYear[year].perungggu);
-    schoolChart.setTitle({ text: `Jumlah Perolehan Medali Berdasarkan Sekolah pada tahun ${year}` });
+    schoolChart.setTitle({ text: `Jumlah Perolehan Medali Berdasarkan Sekolah (Top 10) Pada Tahun ${year}` });
 
      // Calculate the totals for each category
      const totalEmas1 = dataBySchoolYear[year].emas.reduce((x, y) => x + y, 0);
@@ -160,8 +160,8 @@ let schoolChart = Highcharts.chart('school-container', {
         type: 'column'
     },
     title: {
-        text: 'Jumlah Perolehan Medali Berdasarkan Sekolah pada tahun 2009',
-        align: 'left'
+        text: 'Jumlah Perolehan Medali Berdasarkan Sekolah (Top 10) Pada Tahun 2009',
+        align: 'center'
     },
     xAxis: {
         categories: dataBySchoolYear[2009].categories,

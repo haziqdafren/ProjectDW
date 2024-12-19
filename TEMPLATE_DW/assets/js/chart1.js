@@ -76,8 +76,8 @@ let chart1 = Highcharts.chart('partisipanP', {
         type: 'column'
     },
     title: {
-        text: 'Jumlah Partisipan Provinsi 10 Teratas pada tahun 2009',
-        align: 'left'
+        text: 'Jumlah Partisipan Setiap Provinsi (Top 10) Pada Tahun 2009',
+        align: 'center'
     },
     xAxis: {
         categories: ['DKI Jakarta', 'Riau', 'Sumatera Utara', 'Jawa Barat', 'Jawa Tengah', 'Jawa Timur','Bali','Kalimantan', 'Aceh','Papua'],
@@ -91,9 +91,9 @@ let chart1 = Highcharts.chart('partisipanP', {
     },
     series: [
         {
-            name: 'Emas',
-            data: dataByYear[2009].emas,
-            color: '#fa0202' // Gold color
+           name: 'Emas',
+           data: dataByYear[2009].emas,
+           color: '#fa0202' // Gold color
         },
         // {
         //     name: 'Perak',
@@ -119,7 +119,7 @@ function updateChart1(year) {
     chart1.series[2].setData(dataByYear1[year].perungggu);
 
     // Update the chart title to reflect the selected year
-    chart1.setTitle({ text: `Jumlah Partisipan Provinsi 10 Teratas pada tahun ${year}` });
+    chart1.setTitle({ text: `Jumlah Partisipan Setiap Provinsi (Top 10) Pada Tahun ${year}` });
 
 
        // Update the school chart
@@ -128,7 +128,7 @@ function updateChart1(year) {
     schoolChart1.series[0].setData(dataBySchoolYear1[year].emas);
     schoolChart1.series[1].setData(dataBySchoolYear1[year].perak);
     schoolChart1.series[2].setData(dataBySchoolYear1[year].perungggu);
-    schoolChart1.setTitle({ text: `Jumlah Partisipan 10 Tertinggi per Sekolah pada tahun ${year}` });
+    schoolChart1.setTitle({ text: `Jumlah Partisipan Sekolah (Top 10) Pada Tahun ${year}` });
 
  
 }
@@ -138,8 +138,8 @@ let schoolChart1 = Highcharts.chart('partisipanS', {
         type: 'column'
     },
     title: {
-        text: 'Jumlah Partisipan 10 Tertinggi per Sekolah pada tahun 2009',
-        align: 'left'
+        text: 'Jumlah Partisipan Sekolah (Top 10) Pada Tahun 2009',
+        align: 'center'
     },
     xAxis: {
         categories: dataBySchoolYear1[2009].categories,
