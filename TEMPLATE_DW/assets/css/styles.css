@@ -16,10 +16,10 @@
     transform: translateY(-10px);
 }
 
-h3 {
+/* h3 {
     color: #0047ab;
     font-weight: bold;
-}
+} */
 
 p {
     text-align: justify;
@@ -28,7 +28,7 @@ p {
 }
 
 .btn-custom {
-    background-color: #0047ab;
+    background-color: #4ca5e4;
     color: white;
     border-radius: 50px;
     transition: background-color 0.3s ease;
@@ -170,7 +170,7 @@ figure {
 #particles-js {
     position: absolute;
     width: 100%;
-    height: 230%;
+    height: 180%;
     z-index: 0; /* Ensure particles are in the background */
     top: 0;
     left: 0;

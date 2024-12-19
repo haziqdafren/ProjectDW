@@ -73,7 +73,7 @@ let chart = Highcharts.chart('container', {
     xAxis: { categories: dataByYear[2009].categories, crosshair: true },
     yAxis: {
         min: 0,
-        max: 30,
+        max: 50,
         title: { text: 'Jumlah Medali' },
     },
     series: [

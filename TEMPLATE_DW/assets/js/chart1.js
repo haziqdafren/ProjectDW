@@ -53,7 +53,7 @@ let chart1 = Highcharts.chart('partisipanP', {
     xAxis: { categories: dataByYear1[2009].categories, crosshair: true },
     yAxis: {
         min: 0,
-        max: 150,
+        max: 160,
         title: { text: 'Jumlah Partisipan' },
     },
     series: [{ name: 'Partisipan', data: dataByYear1[2009].partisipan, color: '#fa0202' }],
