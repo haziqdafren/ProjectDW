@@ -93,7 +93,7 @@ let chart1 = Highcharts.chart('partisipanP', {
         {
             name: 'Emas',
             data: dataByYear[2009].emas,
-            color: '#FFD700' // Gold color
+            color: '#fa0202' // Gold color
         },
         // {
         //     name: 'Perak',
@@ -156,7 +156,7 @@ let schoolChart1 = Highcharts.chart('partisipanS', {
         {
             name: 'Emas',
             data: dataBySchoolYear1[2009].emas,
-            color: '#FFD700' // Gold color
+            color: '#fa0202' // Gold color
         },
         // {
         //     name: 'Perak',

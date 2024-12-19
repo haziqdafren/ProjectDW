@@ -1,34 +1,34 @@
 
 const dataByYear = {
     2009: {
-        categories: ['DKI Jakarta', 'Riau', 'Sumatera Utara', 'Jawa Barat', 'Jawa Tengah', 'Jawa Timur', 'Bali', 'Kalimantan', 'Aceh', 'Papua'],
-        emas: [34, 14, 18, 18, 12, 4, 4, 8, 6, 2],
-        perak: [34, 44, 30, 26, 22, 14, 6, 4, 10, 6],
-        perungggu: [42, 40, 38, 32, 32, 14, 14, 10, 4, 14]
+        categories: ['DKI Jakarta', 'Jawa Tengah', 'DI Yogyakarta', 'Banten', 'Jawa Barat', 'Jawa Timur', 'Sumatera Utara', 'Riau', 'Bali', 'Sumatera Barat',],
+        emas: [14,7,7,4,0,3,2,1,0,0],
+        perak: [22,19,5,12,5,3,2,3,2,0],
+        perungggu: [20,25,16,5,12,7,8,6,7,1]
     },
     2010: {
-        categories: ['DKI', 'Riau', 'Sumatera Utara', 'Jawa Barat', 'Jawa Tengah', 'Jawa Timur', 'Bali', 'Kalimantan', 'Aceh', 'Papua'],
-        emas: [30, 20, 25, 15, 10, 5, 3, 2, 1, 0],
-        perak: [30, 20, 25, 15, 10, 5, 3, 2, 1, 0],
-        perungggu: [30, 20, 25, 15, 10, 5, 3, 2, 1, 0]
+        categories: ['DKI Jakarta','Jawa Tengah','Jawa Timur','Jawa Barat','Banten','DI Yogyakarta','Sumatera Utara','Bali','Riau','Sumatera Barat'],
+        emas: [13,12,4,8,8,3,0,3,2,0],
+        perak: [26,27,10,8,11,3,4,2,1,1],
+        perungggu: [37,30,29,10,4,7,8,5,4,5]
     },
     2011: {
-        categories: ['DKI Jakarta', 'Riau', 'Sumatera Utara', 'Jawa Barat', 'Jawa Tengah', 'Jawa Timur', 'Bali', 'Kalimantan', 'Aceh', 'Papua'],
-        emas: [20, 30, 15, 25, 10, 5, 3, 2, 1, 0],
-        perak: [20, 30, 15, 25, 10, 5, 3, 2, 1, 0],
-        perungggu: [20, 30, 15, 25, 10, 5, 3, 2, 1, 0]
+        categories: ['DKI Jakarta','Jawa Tengah','Jawa Timur','Banten','Jawa Barat','Bali','DI Yogyakarta','Sumatera Utara','Riau','Sumatera Barat'],
+        emas: [12,5,8,4,4,0,1,2,1,0],
+        perak: [19,17,7,10,7,5,5,0,1,1],
+        perungggu: [21,17,13,8,9,8,6,5,3,0]
     },
     2012: {
-        categories: ['DKI Jakarta', 'Riau', 'Sumatera Utara', 'Jawa Barat', 'Jawa Tengah', 'Jawa Timur', 'Bali', 'Kalimantan', 'Aceh', 'Papua'],
-        emas: [1,2,3,4,5,6,7,8,9,1],
-        perak: [1,2,3,4,5,6,7,8,9,10],
-        perungggu: [1,2,3,4,5,6,7,8,9,10]
+        categories: ['Jawa Tengah','DKI Jakarta', 'Jawa Timur', 'Jawa Barat', 'Banten', 'DI Yogyakarta', 'Bali', 'Riau', 'Sumatera Utara','Sumatera Barat'],
+        emas: [17,16,7,5,7,2,2,0,1,2],
+        perak: [32,20,20,11,6,4,2,4,4,1],
+        perungggu: [29,29,23,20,12,9,11,7,2,3]
     },
     2013: {
-        categories: ['DKI Jakarta', 'Riau', 'Sumatera Utara', 'Jawa Barat', 'Jawa Tengah', 'Jawa Timur', 'Bali', 'Kalimantan', 'Aceh', 'Papua'],
-        emas: [1,2,3,4,5,6,7,8,9,1],
-        perak: [1,2,3,4,5,6,7,8,9,10],
-        perungggu: [1,2,3,4,5,6,7,8,9,10]
+        categories: ['Jawa Tengah','DKI Jakarta', 'Jawa Timur', 'Jawa Barat', 'Banten', 'DI Yogyakarta', 'Bali','Sumatera Utara','Riau', 'Sumatera Barat' ],
+        emas: [15,21,5,6,6,3,1,3,1,0],
+        perak: [32,25,17,15,12,9,3,1,1,2],
+        perungggu: [40,25,26,24,9,9,8,6,6,2]
     },
 };
 
