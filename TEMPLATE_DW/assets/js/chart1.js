@@ -34,35 +34,35 @@ const dataByYear1 = {
 
 const dataBySchoolYear1 = {
     2009: {
-        categories: ['Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D', 'Sekolah E','Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D', 'Sekolah E'],
-        emas: [5, 3, 4, 7, 2,5, 3, 4, 7, 2],
+        categories: ['SMAN 1 Yogyakarta','SMA Kristen BPK Penabur 1 Jakarta','MAN Insan Cendikia Gorontalo','SMAN 8 Jakarta', 'MAN Insan Cendikia Serpong','SMAN Plus Provinsi Riau','SMA Sutomo 1 Medan','SMAN 1 Singaraja','SMA Kristen BPK Penabur Gading Serpong','SMAN Sragen BBS'],
+        emas: [22,18,17,16,12,11,11,10,10,6],
         // perak: [2, 2, 3, 2, 1,5, 3, 4, 7, 2],
         // perungggu: [3, 4, 4, 2, 5,5, 3, 4, 7, 2],
     },
     2010: {
-        categories: ['Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D', 'Sekolah E','Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D', 'Sekolah E'],
-        emas: [5, 3, 4, 7, 2,5, 3, 4, 7, 2],
+        categories: ['MAN Insan Cendikia Gorontalo','SMAN Sragen BBS','SMAN Plus Provinsi Riau','SMAN 8 Jakarta','SMAN 1 Singaraja','MAN Insan Cendikia Serpong','SMA Kristen BPK Penabur Gading Serpong','SMA Kristen BPK Penabur 1 Jakarta', 'SMAN 1 Yogyakarta', 'SMA Sutomo 1 Medan'],
+        emas: [16,15,14,14,13,13,12,12,11,10],
         // perak: [2, 2, 3, 2, 1,5, 3, 4, 7, 2],
         // perungggu: [3, 4, 4, 2, 5,5, 3, 4, 7, 2],
     },
  
     2011: {
-        categories: ['Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D', 'Sekolah E','Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D', 'Sekolah E'],
-        emas: [5, 3, 4, 7, 2,5, 3, 4, 7, 2],
+        categories: ['MAN Insan Cendikia Serpong','SMAN Sragen BBS','SMAN 8 Jakarta','SMAN 1 Singaraja','SMA Sutomo 1 Medan','MAN Insan Cendikia Gorontalo','SMA Kristen BPK Penabur Gading Serpong','SMA Kristen BPK Penabur 1 Jakarta','SMAN Plus Provinsi Riau','SMAN 1 Yogyakarta'],
+        emas: [13,12,11,10,10,10,9,9,7,7],
         // perak: [2, 2, 3, 2, 1,5, 3, 4, 7, 2],
         // perungggu: [3, 4, 4, 2, 5,5, 3, 4, 7, 2],
     },
  
     2012: {
-        categories: ['Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D', 'Sekolah E','Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D', 'Sekolah E'],
-        emas: [5, 3, 4, 7, 2,5, 3, 4, 7, 2],
+        categories: ['MAN Insan Cendikia Gorontalo','SMAN Sragen BBS','SMAN Plus Provinsi Riau','SMA Kristen BPK Penabur Gading Serpong','MAN Insan Cendikia Serpong','SMAN 8 Jakarta','SMA Sutomo 1 Medan','SMAN 1 Singaraja','SMA Kristen BPK Penabur 1 Jakarta'],
+        emas: [14,13,13,13,13,9,9,8,7,6],
         // perak: [2, 2, 3, 2, 1,5, 3, 4, 7, 2],
         // perungggu: [3, 4, 4, 2, 5,5, 3, 4, 7, 2],
     },
  
     2013: {
-        categories: ['Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D', 'Sekolah E','Sekolah A', 'Sekolah B', 'Sekolah C', 'Sekolah D', 'Sekolah E'],
-        emas: [5, 3, 4, 7, 2,5, 3, 4, 7, 2],
+        categories: ['MAN Insan Cendikia Gorontalo','SMAN Sragen BBS','MAN Insan Cendikia Serpong','SMAN Plus Provinsi Riau','SMA Sutomo 1 Medan','SMAN 8 Jakarta','SMAN 1 Yogyakarta','SMA Kristen BPK Penabur Gading Serpong','SMAN 1 Singaraja','SMA Kristen BPK Penabur 1 Jakarta'],
+        emas: [15,14,13,12,12,11,10,10,6,6],
         // perak: [2, 2, 3, 2, 1,5, 3, 4, 7, 2],
         // perungggu: [3, 4, 4, 2, 5,5, 3, 4, 7, 2],
     },
