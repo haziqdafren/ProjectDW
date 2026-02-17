@@ -1,26 +1,55 @@
 # OSN Dashboard — Olimpiade Sains Nasional
 
-This is a data warehouse project I built for my university coursework. The topic I chose is **Olimpiade Sains Nasional (OSN)** — Indonesia's biggest national science olympiad, held every year with students competing from all 34 provinces.
-
-I was curious about the patterns behind the competition — which provinces consistently win the most medals, which schools keep showing up at the top, and how participation has grown over the years. That curiosity turned into this project.
+A data warehouse project built for university coursework at Politeknik Caltex Riau (TA 2024/2025), analysing Indonesia's National Science Olympiad across schools, provinces, medal types, and years — with a sentiment analysis layer on top of participant feedback.
 
 ---
 
-## How the Project Flows
+## The Pipeline
 
-The whole thing went through three stages, and I think that's the most important thing to understand about this project:
+```
+Kaggle CSV  →  Tableau Prep (ETL)  →  Star Schema CSVs  →  Tableau Dashboards  →  Website
+                                                         →  Python Sentiment Analysis
+```
 
-**1. Exploring with Tableau**
+**Step 1 — Raw Data (Kaggle)**
+The source is a flat CSV from Kaggle containing individual OSN participant records for SMP and SMA students from 2009 to 2024. For this project we scoped the data warehouse to **2009–2013** (5 years). Each row covers: participant name, gender, school, province, subject, school level, grade, medal type (Emas / Perak / Perunggu / Partisipan), and year.
 
-Before writing a single line of Python, I used Tableau to explore the raw data visually. This helped me get a feel for what the data actually looked like — spotting obvious outliers, understanding the shape of each dataset, and figuring out which questions were actually worth asking. The Tableau dashboards for medal counts and participant numbers are still linked in the website.
+**Step 2 — ETL with Tableau Prep**
+Tableau Prep handled all the cleaning and transformation. We kept only the four fields we needed (Sekolah, Provinsi, Medali, Tahun), filtered down to 2009–2013, removed punctuation and extra spaces from province names, and split the result into a proper **star schema** — one fact table (`tabelFakta.csv`) connected to five dimension tables. The IDs were added manually in Excel before being loaded back into Tableau Prep for the final split.
 
-**2. Cleaning and Analysing with Python**
+**Step 3 — Visualisation with Tableau Desktop**
+The star schema was connected in Tableau Desktop and used to build four dashboards: medal counts by province (top 10), medal counts by school (top 10), participant counts by province, and participant counts by school — all with a year filter.
 
-Once I knew what I was working with, I moved everything into Python. The Jupyter notebook in `analysis/` documents the full process — loading the Excel files, cleaning up missing values and duplicates, normalising column names, and then producing the actual charts and findings. I kept the notebook readable on purpose, with markdown explaining each step, so anyone can follow the logic without having to guess what the code is doing.
+**Step 4 — Sentiment Analysis with Python**
+Separately from the main ETL, we collected 100 feedback responses from OSN participants and ran sentiment analysis on them using Python. The process:
+- Text preprocessing — lowercase, remove punctuation and numbers using regex, stem words to their root form using **Sastrawi** (Indonesian stemmer), then filter out common stopwords
+- Sentiment classification — each cleaned response is passed through the **Indonesian RoBERTa** model (`w11wo/indonesian-roberta-base-sentiment-classifier`) via the Hugging Face `transformers` pipeline, which returns a label (Positif / Negatif / Netral) and a confidence score
+- Results are saved to CSV and visualised as a bar chart using **Seaborn**
 
-**3. Presenting on the Website**
+**Step 5 — Website**
+The final deliverable is a static website built with Bootstrap 5 and Highcharts, presenting the key findings and charts. Deployed on Vercel.
 
-The final output is a static website built with Bootstrap 5 and Highcharts. It's not just a pretty wrapper — the interactive charts on the Grafik page are driven by the same cleaned data from the analysis. The website is deployed on Vercel so it's accessible to anyone, not just people running it locally.
+---
+
+## Key Findings
+
+- **DKI Jakarta dominates** the medal table every year — the gap between Jakarta and second place (Jawa Tengah / DI Yogyakarta) is consistently large
+- **A small number of schools account for most medals** — SMAN 1 Yogyakarta, SMA Kristen Insa Jakarta, and a handful of Jakarta schools appear at the top across nearly every year
+- **39% of participant feedback was negative** — complaints around technology support, prize quality, and lack of transparency suggest real room to improve how OSN is run
+
+---
+
+## Screenshots
+
+**Medal Count by Province — Top 10 (Tableau)**
+
+![Medal by Province](docs/img/tableau_medali_provinsi.png)
+
+**Sentiment Distribution (Python / Seaborn)**
+
+![Sentiment Analysis](docs/img/sentiment_chart.png)
+
+> To add screenshots: take a snapshot of your best Tableau chart and the sentiment bar chart, save them to `docs/img/` as `tableau_medali_provinsi.png` and `sentiment_chart.png`.
 
 ---
 
@@ -28,70 +57,35 @@ The final output is a static website built with Bootstrap 5 and Highcharts. It's
 
 ```
 osn-dashboard/
-├── website/            → the static site, deployed to Vercel
+├── website/                    → static site, deployed to Vercel
 │   ├── index.html
 │   ├── vercel.json
 │   ├── pages/
-│   │   ├── tentang.html    → about OSN
-│   │   ├── grafik.html     → interactive charts
-│   │   └── artikel.html    → news and articles
+│   │   ├── tentang.html
+│   │   ├── grafik.html
+│   │   └── artikel.html
 │   └── assets/
-│       ├── css/
-│       ├── js/
-│       └── img/
 │
 ├── analysis/
-│   └── osn_analysis.ipynb  → full analysis notebook
+│   ├── osn_analysis.ipynb      → exploratory analysis notebook
+│   └── saran.py                → sentiment analysis script
 │
 ├── data/
-│   ├── raw/                → original Excel files, organised by category
-│   │   ├── Medali_Provinsi/
-│   │   ├── Medali_Sekolah/
-│   │   ├── Partisipan_Provinsi/
-│   │   └── JenjangSekolah/
-│   └── clean/              → cleaned CSVs and chart outputs
+│   ├── raw/
+│   │   └── osn.csv             → original Kaggle CSV
+│   └── clean/                  → star schema output from Tableau Prep
+│       ├── tabelFakta.csv
+│       ├── dimensiSekolah.csv
+│       ├── dimensiProvinsi.csv
+│       ├── dimensiMedali.csv
+│       ├── dimensiTahun.csv
+│       └── dimensiJenjang.csv
+│
+├── docs/
+│   └── img/                    → screenshots for this README
 │
 └── README.md
 ```
-
----
-
-## Running the Analysis
-
-You'll need Python and a few libraries. If you don't have them yet:
-
-```bash
-pip install pandas matplotlib openpyxl jupyter
-```
-
-Then open the notebook:
-
-```bash
-jupyter notebook analysis/osn_analysis.ipynb
-```
-
-The notebook walks through everything step by step — loading each dataset, cleaning it, and generating the visualisations. The cleaned data gets saved to `data/clean/` automatically when you run it.
-
----
-
-## The Data
-
-All datasets cover **2019 to 2024**, stored as individual Excel files per year:
-
-| Folder | What's inside |
-|---|---|
-| `Medali_Provinsi/` | Top 10 provinces by medal count each year |
-| `Medali_Sekolah/` | Top 10 schools by medal count each year |
-| `Partisipan_Provinsi/` | Top 10 provinces by number of participants |
-| `JenjangSekolah/` | Number of participating schools by level (SMP vs SMA) |
-
----
-
-## What I Found
-
-- DKI Jakarta dominates the medal table almost every single year — the gap between first and second place is consistently large
-- Participation has grown steadily from 2019 through 2024, which suggests the competition is reaching more schools over time
-- The sentiment analysis on feedback about OSN showed 39% negative responses — meaning a good chunk of people feel there's still room to improve how the competition is run
 
 ---
 
@@ -99,11 +93,44 @@ All datasets cover **2019 to 2024**, stored as individual Excel files per year:
 
 | Layer | Tools |
 |---|---|
-| Data exploration | Tableau |
-| Data cleaning & analysis | Python, Pandas, Matplotlib, Jupyter |
+| ETL & data modelling | Tableau Prep |
+| Visualisation | Tableau Desktop |
+| Sentiment analysis | Python, Pandas, Transformers (Indonesian RoBERTa), Sastrawi, Seaborn, Matplotlib |
 | Website | HTML, CSS, Bootstrap 5, Highcharts, Particles.js |
 | Deployment | Vercel |
 
 ---
 
-*Built by Mohamad Haziq Dafren — Data Warehouse Project*
+## Running the Sentiment Analysis
+
+```bash
+pip install pandas matplotlib seaborn transformers PySastrawi
+python analysis/saran.py
+```
+
+The script loads the feedback CSV, preprocesses each response (case folding → remove punctuation/numbers → Sastrawi stemming → stopword removal), runs the RoBERTa classifier on each cleaned text, and saves both the labelled results and a distribution chart to `data/clean/`.
+
+---
+
+## Team
+
+**Kelompok 10 — Teknik Informatika, Politeknik Caltex Riau**
+
+| Name | Student ID | Role |
+|---|---|---|
+| Andika Syuhada | 2355301017 | ETL pipeline, Tableau Prep data modelling |
+| Mohamad Haziq Dafren | 2355301119 | Data analysis, website development and graphics |
+| Helfia Giska Renata | 2355301082 | Tableau dashboards, sentiment analysis |
+
+**Supervisor:** Mutia Sari Zulvi, S.S.T., M.M.SI
+**Lab Instructor:** Muhammad Anwar, S.Tr.Kom
+
+---
+
+## Full Report
+
+Full technical documentation (in Indonesian) is available in `dokumenDW.pdf` — covers the data warehouse design, ETL steps, star schema, Tableau dashboards, and sentiment analysis in detail.
+
+---
+
+*Data Warehouse Project — TA 2024/2025*
