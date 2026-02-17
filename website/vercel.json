@@ -1,22 +1,10 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "routes": [
-    {
-      "src": "/",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/grafik",
-      "dest": "/pages/grafik.html"
-    },
-    {
-      "src": "/tentang",
-      "dest": "/pages/tentang.html"
-    },
-    {
-      "src": "/artikel",
-      "dest": "/pages/artikel.html"
-    }
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/grafik", "destination": "/pages/grafik.html" },
+    { "source": "/tentang", "destination": "/pages/tentang.html" },
+    { "source": "/artikel", "destination": "/pages/artikel.html" }
   ]
 }
