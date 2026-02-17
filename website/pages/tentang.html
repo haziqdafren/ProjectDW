@@ -68,40 +68,96 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-8 col-lg-10 col-md-12 mx-auto">
+
+                            <!-- About OSN -->
                             <div class="card card-plain mt-8">
                                 <div class="card-header pb-0 text-center bg-transparent">
                                     <h3 class="font-weight-bolder text-info text-gradient">Olimpiade Sains Nasional</h3>
+                                    <p class="text-secondary text-sm mb-0">Kompetisi sains bergengsi tingkat nasional untuk siswa SMP dan SMA di seluruh Indonesia</p>
                                 </div>
                                 <div class="card-body">
                                     <p>
-                                        <strong>Olimpiade Sains Nasional (OSN)</strong> adalah ajang kompetisi sains terbesar di Indonesia yang bertujuan untuk mendorong siswa berprestasi di bidang sains dan teknologi. OSN dirancang untuk memupuk kemampuan akademik, kepercayaan diri, serta keterampilan sosial siswa melalui persaingan yang sehat. Peserta OSN berasal dari berbagai tingkat pendidikan dan wilayah di Indonesia.
+                                        <strong>Olimpiade Sains Nasional (OSN)</strong> adalah kompetisi sains terbesar di Indonesia yang diselenggarakan setiap tahun oleh Kementerian Pendidikan dan Kebudayaan. Peserta berasal dari seluruh provinsi di Indonesia, mulai dari jenjang SMP hingga SMA, bersaing dalam berbagai bidang ilmu seperti Matematika, Fisika, Kimia, Biologi, Informatika, dan lainnya.
                                     </p>
                                     <p>
-                                        Melalui OSN, siswa yang unggul di tingkat nasional berkesempatan mewakili Indonesia di ajang internasional. OSN juga mendukung pengembangan pendidikan sains di sekolah-sekolah, menciptakan peluang beasiswa, serta membuka jalan karier di bidang teknologi dan sains.
+                                        Proses seleksi OSN berjenjang — dimulai dari tingkat sekolah, kemudian kabupaten/kota, lalu provinsi, hingga akhirnya tingkat nasional. Siswa yang berhasil meraih medali di tingkat nasional berkesempatan mewakili Indonesia di ajang olimpiade sains internasional.
                                     </p>
+
+                                    <!-- Stat counters -->
+                                    <div class="row text-center mt-4 mb-2">
+                                        <div class="col-6 col-md-3 mb-3">
+                                            <div class="card shadow-sm p-3">
+                                                <h4 class="font-weight-bolder text-info mb-0">5</h4>
+                                                <p class="text-sm text-secondary mb-0">Tahun Data<br><small>(2009–2013)</small></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-3 mb-3">
+                                            <div class="card shadow-sm p-3">
+                                                <h4 class="font-weight-bolder text-info mb-0">34</h4>
+                                                <p class="text-sm text-secondary mb-0">Provinsi<br><small>di Indonesia</small></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-3 mb-3">
+                                            <div class="card shadow-sm p-3">
+                                                <h4 class="font-weight-bolder text-info mb-0">3</h4>
+                                                <p class="text-sm text-secondary mb-0">Jenis Medali<br><small>Emas · Perak · Perunggu</small></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-md-3 mb-3">
+                                            <div class="card shadow-sm p-3">
+                                                <h4 class="font-weight-bolder text-info mb-0">100</h4>
+                                                <p class="text-sm text-secondary mb-0">Saran Peserta<br><small>dianalisis sentimennya</small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Key findings -->
+                                    <div class="card bg-gray-100 border-0 p-3 mt-2">
+                                        <h6 class="font-weight-bolder mb-2"><i class="fas fa-lightbulb text-warning me-2"></i>Temuan Utama</h6>
+                                        <ul class="text-sm mb-0 ps-3">
+                                            <li class="mb-1">DKI Jakarta mendominasi perolehan medali hampir setiap tahun, diikuti Jawa Tengah dan DI Yogyakarta.</li>
+                                            <li class="mb-1">Sekolah-sekolah unggulan seperti SMAN Sragen BBS, MAN Insan Cendekia, dan SMAN 8 Jakarta secara konsisten masuk 10 besar.</li>
+                                            <li>Dari 100 saran peserta, <strong>39% bersifat negatif</strong> — mayoritas menyoroti kurangnya sarana teknologi, transparansi pengumuman, dan apresiasi hadiah.</li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- About this project -->
+                                    <div class="mt-4">
+                                        <h6 class="font-weight-bolder mb-2"><i class="fas fa-database text-info me-2"></i>Tentang Proyek Ini</h6>
+                                        <p class="text-sm mb-1">
+                                            Dashboard ini merupakan proyek <em>Data Warehouse</em> yang dikembangkan oleh Kelompok 10, Program Studi Teknik Informatika, Politeknik Caltex Riau (TA 2024/2025). Data bersumber dari Kaggle dan mencakup seluruh peserta OSN tingkat SMP dan SMA dari 2009 hingga 2013.
+                                        </p>
+                                        <p class="text-sm mb-0">
+                                            Proses ETL dilakukan menggunakan <strong>Tableau Prep</strong> dengan skema bintang (<em>star schema</em>) — satu tabel fakta dihubungkan dengan dimensi Sekolah, Provinsi, Medali, Tahun, dan Jenjang. Analisis sentimen menggunakan model <strong>Indonesian RoBERTa</strong> dari Hugging Face untuk mengklasifikasikan saran peserta menjadi positif, netral, atau negatif.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
 
+                            <!-- Dashboard links -->
                             <div class="row mt-4">
                                 <div class="col-md-6">
-                                    <a href="https://public.tableau.com/app/profile/helfia.giska.renata/viz/GrafikOSNJumlahMedali/Dashboard1?publish=yes" class="link-card">
+                                    <a href="https://public.tableau.com/app/profile/helfia.giska.renata/viz/GrafikOSNJumlahMedali/Dashboard1?publish=yes" class="link-card" target="_blank" rel="noopener">
                                         <div class="card p-3 text-center">
+                                            <i class="fas fa-medal text-warning fa-2x mb-2"></i>
                                             <h5 class="text-info">Grafik Jumlah Medali</h5>
-                                            <p>Lihat visualisasi jumlah medali yang diraih oleh para peserta OSN dari tahun ke tahun.</p>
-                                            <button class="btn btn-custom">Lihat Grafik</button>
+                                            <p class="text-sm">Visualisasi perolehan medali emas, perak, dan perunggu berdasarkan provinsi dan sekolah dari 2009 hingga 2013.</p>
+                                            <button class="btn btn-custom">Lihat di Tableau</button>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="https://public.tableau.com/app/profile/helfia.giska.renata/viz/GrafikOSNJumlahPartisipan/Dashboard2?publish=yes" class="link-card">
+                                    <a href="https://public.tableau.com/app/profile/helfia.giska.renata/viz/GrafikOSNJumlahPartisipan/Dashboard2?publish=yes" class="link-card" target="_blank" rel="noopener">
                                         <div class="card p-3 text-center">
+                                            <i class="fas fa-users text-info fa-2x mb-2"></i>
                                             <h5 class="text-info">Grafik Jumlah Partisipan</h5>
-                                            <p>Lihat data partisipasi siswa dari seluruh Indonesia dalam ajang OSN.</p>
-                                            <button class="btn btn-custom">Lihat Grafik</button>
+                                            <p class="text-sm">Data jumlah peserta yang lolos ke tahap nasional dari setiap provinsi dan sekolah selama 5 tahun.</p>
+                                            <button class="btn btn-custom">Lihat di Tableau</button>
                                         </div>
                                     </a>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -113,7 +169,7 @@
         <div class="row">
             <div class="col-8 mx-auto text-center mt-1">
                 <p class="mb-0 text-secondary">
-                    Copyright &copy; <script>document.write(new Date().getFullYear())</script> OSN Grafik by Kelompok.
+                    Copyright &copy; <script>document.write(new Date().getFullYear())</script> OSN Dashboard — Kelompok 10, Politeknik Caltex Riau
                 </p>
             </div>
         </div>

@@ -56,9 +56,17 @@
         </nav>
     </div>
 
-    <div class="card">
-        <div class="dropdown-container">
-            <label for="year-selector" style="font-size: 18px; margin-right: 10px;">Pilih Tahun:</label>
+    <!-- Page intro -->
+    <div class="px-4 pt-2 pb-1 mx-2">
+        <h5 class="font-weight-bolder mb-1">Visualisasi Data OSN 2009–2013</h5>
+        <p class="text-sm text-secondary mb-0">Data perolehan medali dan jumlah partisipan Olimpiade Sains Nasional tingkat nasional. Gunakan filter tahun untuk melihat perubahan dari tahun ke tahun.</p>
+    </div>
+
+    <!-- Year selector -->
+    <div class="card mx-2">
+        <div class="dropdown-container d-flex align-items-center">
+            <i class="fas fa-calendar-alt text-info me-2"></i>
+            <label for="year-selector" style="font-size: 15px; margin-right: 10px; font-weight: 600;">Pilih Tahun:</label>
             <select id="year-selector" onchange="updateChart(this.value); updateChart1(this.value)">
                 <option value="2009">2009</option>
                 <option value="2010">2010</option>
@@ -66,6 +74,14 @@
                 <option value="2012">2012</option>
                 <option value="2013">2013</option>
             </select>
+        </div>
+
+        <!-- Section label: Medali -->
+        <div class="px-3 pt-2 pb-1">
+            <h6 class="font-weight-bolder text-info mb-0">
+                <i class="fas fa-medal me-2"></i>Perolehan Medali
+            </h6>
+            <p class="text-xs text-secondary mb-2">Jumlah medali emas, perak, dan perunggu yang diraih — 10 teratas berdasarkan provinsi dan sekolah.</p>
         </div>
 
         <div class="chart-container">
@@ -79,6 +95,15 @@
                     <div id="school-container"></div>
                 </figure>
             </div>
+
+            <!-- Section label: Partisipan -->
+            <div class="px-1 pt-3 pb-1" style="grid-column: 1 / -1;">
+                <h6 class="font-weight-bolder text-info mb-0">
+                    <i class="fas fa-users me-2"></i>Jumlah Partisipan
+                </h6>
+                <p class="text-xs text-secondary mb-2">Jumlah peserta yang lolos ke tahap nasional — 10 teratas berdasarkan provinsi dan sekolah.</p>
+            </div>
+
             <div class="card">
                 <figure class="highcharts-figure">
                     <div id="partisipanP"></div>
@@ -93,46 +118,56 @@
     </div>
 
     <!-- Sentiment Analysis Section -->
-    <div class="card">
-        <h6 class="text-center">Sentimen Analisis</h6>
+    <div class="card mx-2 mt-3">
+        <div class="d-flex align-items-center mb-3">
+            <i class="fas fa-comment-dots text-info fa-lg me-2"></i>
+            <div>
+                <h6 class="font-weight-bolder mb-0">Analisis Sentimen Saran Peserta OSN</h6>
+                <p class="text-xs text-secondary mb-0">Berdasarkan 100 saran peserta yang dianalisis menggunakan model Indonesian RoBERTa</p>
+            </div>
+        </div>
+
         <ul class="list-group">
             <li class="list-group-item border-0 d-flex align-items-center px-0 mb-0">
                 <div class="w-100">
                     <div class="d-flex mb-2">
-                        <span class="me-2 text-sm font-weight-bold text-dark">Positif</span>
-                        <span class="ms-auto text-sm font-weight-bold">30</span>
+                        <span class="me-2 text-sm font-weight-bold text-dark"><i class="fas fa-smile text-success me-1"></i>Positif</span>
+                        <span class="ms-auto text-sm font-weight-bold">30 <span class="text-secondary font-weight-normal">(30%)</span></span>
                     </div>
                     <div class="progress progress-md">
-                        <div class="progress-bar bg-primary w-30" role="progressbar"></div>
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 30%"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item border-0 d-flex align-items-center px-0 mb-0">
+                <div class="w-100">
+                    <div class="d-flex mb-2">
+                        <span class="me-2 text-sm font-weight-bold text-dark"><i class="fas fa-meh text-warning me-1"></i>Netral</span>
+                        <span class="ms-auto text-sm font-weight-bold">31 <span class="text-secondary font-weight-normal">(31%)</span></span>
+                    </div>
+                    <div class="progress progress-md">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 31%"></div>
                     </div>
                 </div>
             </li>
             <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
                 <div class="w-100">
                     <div class="d-flex mb-2">
-                        <span class="me-2 text-sm font-weight-bold text-dark">Netral</span>
-                        <span class="ms-auto text-sm font-weight-bold">31</span>
+                        <span class="me-2 text-sm font-weight-bold text-dark"><i class="fas fa-frown text-danger me-1"></i>Negatif</span>
+                        <span class="ms-auto text-sm font-weight-bold">39 <span class="text-secondary font-weight-normal">(39%)</span></span>
                     </div>
                     <div class="progress progress-md">
-                        <div class="progress-bar bg-primary w-35" role="progressbar"></div>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                <div class="w-100">
-                    <div class="d-flex mb-2">
-                        <span class="me-2 text-sm font-weight-bold text-dark">Negatif</span>
-                        <span class="ms-auto text-sm font-weight-bold">39</span>
-                    </div>
-                    <div class="progress progress-md">
-                        <div class="progress-bar bg-primary w-40" role="progressbar"></div>
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 39%"></div>
                     </div>
                 </div>
             </li>
         </ul>
-        <p class="text-sm text-center mt-3">
-            Ini merupakan <b>Sentimen Analisis</b> yang diambil dari saran terhadap kegiatan <b>Olimpiade Sains Nasional</b> ini.
-        </p>
+
+        <div class="alert alert-light border-start border-warning border-3 mt-3 mb-0 py-2 px-3">
+            <p class="text-sm mb-0">
+                <strong>39% saran bersifat negatif</strong> — keluhan terbanyak menyoroti kurangnya dukungan sarana teknologi, minimnya transparansi pengumuman hasil, dan apresiasi hadiah yang perlu ditingkatkan. Analisis menggunakan model <em>w11wo/indonesian-roberta-base-sentiment-classifier</em> dengan preprocessing teks berbahasa Indonesia (Sastrawi stemming, stopword removal).
+            </p>
+        </div>
     </div>
 
     <script src="../assets/js/core/bootstrap.bundle.min.js"></script>
