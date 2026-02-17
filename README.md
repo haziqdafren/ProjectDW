@@ -41,15 +41,13 @@ The final deliverable is a static website built with Bootstrap 5 and Highcharts,
 
 ## Screenshots
 
-**Medal Count by Province — Top 10 (Tableau)**
+**Medal Count by Province & School — Top 10 (Tableau)**
 
-![Medal by Province](docs/img/tableau_medali_provinsi.png)
+![Jumlah Medali](docs/img/jumlahMedali.png)
 
-**Sentiment Distribution (Python / Seaborn)**
+**Participant Count by Province & School — Top 10 (Tableau)**
 
-![Sentiment Analysis](docs/img/sentiment_chart.png)
-
-> To add screenshots: take a snapshot of your best Tableau chart and the sentiment bar chart, save them to `docs/img/` as `tableau_medali_provinsi.png` and `sentiment_chart.png`.
+![Jumlah Partisipan](docs/img/jumlahPartisipan.png)
 
 ---
 
@@ -129,7 +127,7 @@ The script loads the feedback CSV, preprocesses each response (case folding → 
 
 ## Full Report
 
-Full technical documentation (in Indonesian) is available in `dokumenDW.pdf` — covers the data warehouse design, ETL steps, star schema, Tableau dashboards, and sentiment analysis in detail.
+Full technical documentation (in Indonesian) is available in [`dokumenDW.pdf`](dokumenDW.pdf) — covers the data warehouse design, ETL steps, star schema, Tableau dashboards, and sentiment analysis in detail.
 
 ---
 
