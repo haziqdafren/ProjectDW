@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../assets/img/OSN.png">
+    <title>Grafik - Olimpiade Sains Nasional</title>
+    <link href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,800" rel="stylesheet" />
+    <link href="../assets/css/soft-ui-dashboard.min.css" rel="stylesheet" />
+    <link href="../assets/css/styles1.css" rel="stylesheet" />
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container position-sticky z-index-sticky top-0">
+        <nav class="navbar navbar-expand-lg blur blur-rounded z-index-3 shadow my-3 py-2 start-0 end-0 mx-4">
+            <div class="container-fluid pe-0">
+                <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3" href="../pages/tentang.html">
+                    <img src="../assets/img/OSN.png" alt="Logo OSN" style="height: 40px; margin-right: 10px;">
+                </a>
+                <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon mt-2">
+                        <span class="navbar-toggler-bar bar1"></span>
+                        <span class="navbar-toggler-bar bar2"></span>
+                        <span class="navbar-toggler-bar bar3"></span>
+                    </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navigation">
+                    <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="../pages/grafik.html">
+                                <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
+                                <strong>Grafik</strong>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link me-2" href="../pages/tentang.html">
+                                <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
+                                <strong>Tentang</strong>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link me-2" href="../pages/artikel.html">
+                                <i class="fas fa-newspaper opacity-6 text-dark me-1"></i>
+                                <strong>Artikel</strong>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="card">
+        <div class="dropdown-container">
+            <label for="year-selector" style="font-size: 18px; margin-right: 10px;">Pilih Tahun:</label>
+            <select id="year-selector" onchange="updateChart(this.value); updateChart1(this.value)">
+                <option value="2009">2009</option>
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+            </select>
+        </div>
+
+        <div class="chart-container">
+            <div class="card">
+                <figure class="highcharts-figure">
+                    <div id="container"></div>
+                </figure>
+            </div>
+            <div class="card">
+                <figure class="highcharts-figure">
+                    <div id="school-container"></div>
+                </figure>
+            </div>
+            <div class="card">
+                <figure class="highcharts-figure">
+                    <div id="partisipanP"></div>
+                </figure>
+            </div>
+            <div class="card">
+                <figure class="highcharts-figure">
+                    <div id="partisipanS"></div>
+                </figure>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sentiment Analysis Section -->
+    <div class="card">
+        <h6 class="text-center">Sentimen Analisis</h6>
+        <ul class="list-group">
+            <li class="list-group-item border-0 d-flex align-items-center px-0 mb-0">
+                <div class="w-100">
+                    <div class="d-flex mb-2">
+                        <span class="me-2 text-sm font-weight-bold text-dark">Positif</span>
+                        <span class="ms-auto text-sm font-weight-bold">30</span>
+                    </div>
+                    <div class="progress progress-md">
+                        <div class="progress-bar bg-primary w-30" role="progressbar"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
+                <div class="w-100">
+                    <div class="d-flex mb-2">
+                        <span class="me-2 text-sm font-weight-bold text-dark">Netral</span>
+                        <span class="ms-auto text-sm font-weight-bold">31</span>
+                    </div>
+                    <div class="progress progress-md">
+                        <div class="progress-bar bg-primary w-35" role="progressbar"></div>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
+                <div class="w-100">
+                    <div class="d-flex mb-2">
+                        <span class="me-2 text-sm font-weight-bold text-dark">Negatif</span>
+                        <span class="ms-auto text-sm font-weight-bold">39</span>
+                    </div>
+                    <div class="progress progress-md">
+                        <div class="progress-bar bg-primary w-40" role="progressbar"></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <p class="text-sm text-center mt-3">
+            Ini merupakan <b>Sentimen Analisis</b> yang diambil dari saran terhadap kegiatan <b>Olimpiade Sains Nasional</b> ini.
+        </p>
+    </div>
+
+    <script src="../assets/js/core/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/chart.js"></script>
+    <script src="../assets/js/chart1.js"></script>
+</body>
+
+</html>

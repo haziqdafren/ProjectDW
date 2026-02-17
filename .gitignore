@@ -1,0 +1,41 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python virtual environments
+venv/
+.venv/
+env/
+like/
+can/
+it/
+myenv/
+myenv310/
+whatever/
+You/
+name/
+#/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Node
+node_modules/
+package-lock.json
+
+# Editor
+.vscode/
+*.tfl
+*.twb
+
+# Misc
+*.zip
+desktop.ini

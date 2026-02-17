@@ -1,0 +1,38 @@
+body {
+    margin: 20px;
+}
+.dropdown-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+select {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    transition: background-color 0.3s;
+}
+select:hover {
+    background-color: #f0f0f0;
+}
+figure {
+    margin: 0;
+}
+.card {
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+.highcharts-figure {
+    margin: 0 auto;
+    max-width: 800px;
+}
+#totals {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+}
