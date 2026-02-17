@@ -1,35 +1,20 @@
 # OSN Dashboard — Olimpiade Sains Nasional
 
-Data dashboard dan analisis untuk **Olimpiade Sains Nasional (OSN)** — ajang kompetisi sains terbesar di Indonesia.
+Ini adalah proyek mata kuliah **Data Warehouse** yang aku buat sebagai bagian dari tugas akhir semester. Idenya sederhana — aku pengen bikin sesuatu yang bukan cuma bisa dijalankan di laptop sendiri, tapi juga bisa dilihat orang lain secara online.
 
-**Live site:** [osn-dashboard.vercel.app](https://osn-dashboard.vercel.app) <!-- update after deploy -->
+Jadi aku pilih topik **Olimpiade Sains Nasional (OSN)** karena datanya menarik dan cukup lengkap. OSN itu kompetisi sains terbesar di Indonesia yang diikuti siswa dari seluruh provinsi setiap tahunnya. Dari data ini aku bisa lihat banyak hal — provinsi mana yang paling banyak raih medali, sekolah mana yang paling berprestasi, sampai gimana tren partisipasi peserta dari tahun ke tahun.
 
 ---
 
-## Struktur Proyek
+## Isi Proyek
 
 ```
 osn-dashboard/
-├── website/              # Static website (deployed to Vercel)
-│   ├── index.html        # Redirect ke halaman utama
-│   ├── vercel.json       # Konfigurasi deployment
-│   ├── pages/
-│   │   ├── tentang.html  # Halaman tentang OSN
-│   │   ├── grafik.html   # Visualisasi data interaktif (Highcharts)
-│   │   └── artikel.html  # Artikel & berita OSN
-│   └── assets/           # CSS, JS, gambar
-│
-├── analysis/
-│   └── osn_analysis.ipynb  # Notebook analisis data end-to-end
-│
+├── website/        → website statis yang bisa langsung dibuka di browser
+├── analysis/       → notebook Python untuk analisis datanya
 ├── data/
-│   ├── raw/              # Data mentah (.xlsx) per kategori & tahun
-│   │   ├── Medali_Provinsi/
-│   │   ├── Medali_Sekolah/
-│   │   ├── Partisipan_Provinsi/
-│   │   └── JenjangSekolah/
-│   └── clean/            # Data hasil pembersihan (.csv) + grafik output
-│
+│   ├── raw/        → data mentah Excel yang aku kumpulkan
+│   └── clean/      → hasil setelah data dibersihkan
 └── README.md
 ```
 
@@ -37,61 +22,76 @@ osn-dashboard/
 
 ## Website
 
-Dibangun dengan **HTML/CSS/JS statis** menggunakan Bootstrap 5 (Soft UI Dashboard) dan Highcharts untuk visualisasi interaktif.
+Website-nya aku deploy ke Vercel supaya bisa diakses siapa saja tanpa perlu install apapun.
 
-**Halaman:**
-- **Tentang** — Penjelasan tentang OSN
-- **Grafik** — Visualisasi interaktif: partisipan per tahun, performa sekolah, sentimen analisis
-- **Artikel** — Berita dan artikel terkait OSN 2023/2024
+**Halaman yang ada:**
+- **Tentang** — penjelasan singkat tentang apa itu OSN
+- **Grafik** — visualisasi interaktif data OSN pakai Highcharts, ada filter per tahun juga
+- **Artikel** — kumpulan berita dan artikel seputar OSN 2023–2024
 
-**Deploy ke Vercel:**
-1. Import repo di [vercel.com](https://vercel.com)
-2. Set **Root Directory** ke `website/`
-3. Tidak perlu build command — pure static site
+Untuk tampilannya aku pakai template Bootstrap 5 dari Creative Tim (Soft UI Dashboard) yang sudah aku modifikasi dan bersihkan dari komponen-komponen yang nggak kepake.
+
+**Cara buka lokal:**
+Cukup buka file `website/index.html` langsung di browser, nggak perlu server khusus.
 
 ---
 
 ## Analisis Data
 
-Buka `analysis/osn_analysis.ipynb` untuk melihat full pipeline:
+Semua proses analisis ada di file `analysis/osn_analysis.ipynb`. Di sana aku dokumentasikan step by step mulai dari:
 
-```
-Load data mentah → Cleaning → Analisis → Visualisasi → Export
-```
+1. Load data dari file Excel
+2. Bersihin data — cek nilai kosong, hapus duplikat, normalisasi kolom
+3. Analisis medali per provinsi (2019–2024)
+4. Analisis medali per sekolah
+5. Analisis jumlah partisipan per provinsi
+6. Perbandingan peserta jenjang SMP vs SMA
+7. Analisis sentimen dari saran-saran yang masuk tentang OSN
 
-**Data yang dianalisis (2019–2024):**
-| Dataset | Deskripsi |
-|---|---|
-| Medali_Provinsi | Top 10 provinsi peraih medali per tahun |
-| Medali_Sekolah | Top 10 sekolah peraih medali per tahun |
-| Partisipan_Provinsi | Top 10 provinsi dengan partisipan terbanyak |
-| JenjangSekolah | Jumlah sekolah peserta per jenjang (SMP/SMA) |
+**Cara jalankan notebook-nya:**
 
-**Jalankan notebook:**
+Pastiin dulu sudah install library yang dibutuhkan:
 ```bash
 pip install pandas matplotlib openpyxl jupyter
+```
+
+Lalu jalankan:
+```bash
 jupyter notebook analysis/osn_analysis.ipynb
 ```
 
 ---
 
-## Temuan Utama
+## Data
 
-- DKI Jakarta secara konsisten menjadi juara umum OSN
-- Partisipan OSN menunjukkan tren pertumbuhan dari 2019–2024
-- Analisis sentimen: **39% Negatif**, 31% Netral, 30% Positif — menunjukkan ruang perbaikan
+Data yang aku pakai dikumpulkan dari berbagai sumber dan disimpan dalam format Excel per tahun (2019–2024):
+
+| Folder | Isi |
+|---|---|
+| `Medali_Provinsi/` | Top 10 provinsi peraih medali tiap tahun |
+| `Medali_Sekolah/` | Top 10 sekolah peraih medali tiap tahun |
+| `Partisipan_Provinsi/` | Top 10 provinsi dengan peserta terbanyak |
+| `JenjangSekolah/` | Jumlah peserta SMP dan SMA per tahun |
+
+Setelah dianalisis, hasilnya disimpan ke `data/clean/` dalam format CSV.
+
+---
+
+## Beberapa Hal yang Aku Temukan
+
+- DKI Jakarta hampir selalu jadi juara umum OSN setiap tahunnya
+- Jumlah peserta OSN terus meningkat dari 2019 sampai 2024
+- Dari analisis sentimen, ternyata 39% saran yang masuk bersifat negatif — artinya masih banyak yang ngerasa OSN perlu diperbaiki dari sisi pelaksanaannya
 
 ---
 
 ## Tech Stack
 
-| Komponen | Teknologi |
-|---|---|
-| Website | HTML, CSS, Bootstrap 5, Highcharts, Particles.js |
-| Analisis | Python, Pandas, Matplotlib |
-| Deployment | Vercel |
-| Data | Excel (.xlsx), CSV |
+- **Website:** HTML, CSS, Bootstrap 5, Highcharts, Particles.js
+- **Analisis:** Python, Pandas, Matplotlib, Jupyter Notebook
+- **Deployment:** Vercel
+- **Data:** Excel (.xlsx) → CSV
 
 ---
 
-*Proyek ini dibuat sebagai bagian dari mata kuliah Data Warehouse.*
+*Dibuat oleh Mohamad Haziq Dafren — Proyek Data Warehouse*
